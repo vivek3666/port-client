@@ -26,24 +26,23 @@ export class LoginComponent implements OnInit {
   }
 
   public loginUser(): void {
-    if(this.loginForm.valid) {
+    this._router.navigate(['moments','moment-listing']);
+    /*if(this.loginForm.valid) {
       this._auth.loginUser(this.loginForm.value)
         .subscribe(
           res => this.loginUserSuccess(res),
           err => this.loginUserError(err)
         )
-    }
+    }*/
   }
 
   private loginUserSuccess(res: any): void {
-    this._router.navigate(['/home'])
-
-    /*if (res.token) {
+    if (res.token) {
       sessionStorage.setItem('token', res.token)
-      this._router.navigate(['/home'])
+      this._router.navigate(['moments/dashboard'])
     } else {
-      this._router.navigate(['/login'])
-    }*/
+      this._router.navigate(['auth/login'])
+    }
   }
 
   private loginUserError(err: any): void {

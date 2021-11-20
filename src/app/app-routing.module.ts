@@ -1,9 +1,8 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { LoginComponent } from './authorization/login/login.component';
 import { SignupComponent } from './authorization/signup/signup.component';
 
-const routes: Routes = [
+export const mainRoutes: Routes = [
   {
     path: '',
     redirectTo: '/auth/login',
@@ -16,11 +15,9 @@ const routes: Routes = [
   {
     path: 'auth/register',
     component: SignupComponent
+  },
+  {
+    path: 'moments',
+    loadChildren: () => import('./moments-home/moments-home.module').then(m => m.MomentsHomeModule),
   }
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }

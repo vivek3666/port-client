@@ -38,6 +38,21 @@ export class ValidationService {
     }
   }
 
+  static requireTagsValidator(control: any) {
+    if (control.value === '' || control.value === undefined) {
+      return {'requiredTags': true};
+    } else {
+      return null;
+    }
+  }
+
+  static requireTitleValidator(control: any) {
+    if (control.value === '' || control.value === undefined) {
+      return {'requiredTitle': true};
+    } else {
+      return null;
+    }
+  }
 
   static requirePasswordValidator(control: any) {
     if (control.value === '' || control.value === undefined) {

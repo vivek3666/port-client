@@ -1,0 +1,19 @@
+<div class="file-uploader-container"  drag-drop (onFileDropped)="uploadFile($event)" >
+  <div class="bg-transparent">
+    <label class="d-flex">
+      <span class=""> Drag & drop file </span>
+    </label>
+    <div>or</div>
+    <div>
+      <label class="btn text-primary mbc-text-btn m-0" for="fileInput">
+        Browse
+      </label>
+      <input id="fileInput" type="file" onclick="this.value=null;" (change)="uploadFile($event)"
+             hidden>
+    </div>
+  </div>
+  <div>
+    {{fileName}}
+    <i class="fa fa-trash-o" style="font-size:24px;margin: 5px" (click)="removeFile()" alt="Remove"></i>
+  </div>
+</div>
