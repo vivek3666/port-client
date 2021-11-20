@@ -1,0 +1,17 @@
+#button-parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#button{
+    margin-top: 10px;
+    background-color: aqua;
+    align-self: center;
+}
+#successMsgTheme{
+    color: rgb(68, 136, 0);
+}
+#failureMsgTheme{
+    color: red;
+}

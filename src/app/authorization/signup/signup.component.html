@@ -1,0 +1,61 @@
+<div class="py-5">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <span class="anchor" id="formLogin"></span>
+      <div class="card rounded-0">
+        <div class="card-header">
+          <h3 class="mb-0">Sign up To be a member</h3>
+        </div>
+        <div class="card-body">
+          <form class="form" [formGroup]="userForm">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="firstName">First Name:</label>
+                  <input id="firstName" type="text" name="firstName"
+                         class="form-control rounded-0" required>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="lastName">Last Name:</label>
+                  <input id="lastName" type="text" name="lastName"
+                         class="form-control rounded-0" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <label for="phoneNo">Phone no.</label>
+                <input id="phoneNo" type="number" name="phoneNo" class="form-control rounded-0"
+                       required>
+              </div>
+              <div class="col-sm-6">
+                <label for="email">Email-ID</label>
+                <input id="email" type="email" name="email" class="form-control rounded-0"
+                       required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <label for="city">City</label>
+                <input id="city" type="email" name="city" class="form-control rounded-0"
+                       required>
+              </div>
+              <div class="col-sm-6">
+                <label for="password">Enter Password</label>
+                <input id="password" type="email" name="password" class="form-control rounded-0"
+                       required>
+              </div>
+            </div>
+            <div id="button-parent">
+              <button id="button" (click)="registerUser()" type="button" class="btn float-none">Register</button>
+              <label>Already a member? </label>
+              <a [routerLink]="'/auth/login'" class="nav-link">Sign In</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
