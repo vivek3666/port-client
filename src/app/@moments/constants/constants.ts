@@ -9,8 +9,8 @@ export class UrlConstants {
 }
 
 export class APIEndPoints {
-  public static endpoint = 'http://localhost:3000/api/';
-  // public static endpoint = 'https://moments-5d-server.herokuapp.com/api/';
+  // public static endpoint = 'http://localhost:3000/api/';
+  public static endpoint = 'https://moments-5d-server.herokuapp.com/api/';
 }
 
 export class SessionConstants {
