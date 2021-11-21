@@ -10,7 +10,7 @@ import { HeaderComponent } from './@moments/components/header/header.component';
 import { LoginComponent } from './authorization/login/login.component';
 import { SignupComponent } from './authorization/signup/signup.component';
 
-import { AuthService } from './@moments/services/auth.service';
+import { AuthService } from './authorization/services/auth.service';
 import {RouterModule, Routes} from "@angular/router";
 import {mainRoutes} from "./app-routing.module";
 

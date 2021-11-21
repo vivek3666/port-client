@@ -9,7 +9,7 @@
               <div class="col-sm-12">
                 <div class="form-group">
                   <label for="title">Title</label>
-                  <input id="title" type="text" name="firstName"
+                  <input id="title" type="text" name="title" [formControlName]="'title'" [(ngModel)]="moment.title"
                          class="form-control rounded-0" required>
                 </div>
               </div>
@@ -18,15 +18,16 @@
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="tags">Tags</label>
-                  <input id="tags" type="text" name="lastName"
-                         class="form-control rounded-0" required>
+                  <input id="tags" type="text" name="tags"
+                         class="form-control rounded-0">
                 </div>
               </div>
             </div>
             <div class="row" style="margin: 3%">
               <file-uploader></file-uploader>
             </div>
-            <button id="button" (click)="createMoment()" type="button" class="btn-outline-primary ">Submit</button>
+            <button id="button" (click)="isNew?createMoment():editMoment()" type="button" class="btn-outline-primary ">
+              {{isNew?'Submit':'Update'}}</button>
           </form>
         </div>
       </div>

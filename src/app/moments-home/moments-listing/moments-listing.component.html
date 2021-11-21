@@ -19,7 +19,7 @@
   </ngx-datatable-column>
   <ngx-datatable-column [draggable]="false" [resizeable]="false" [sortable]="false" [name]="'Image'">
     <ng-template let-row="row" let-itemIndex="rowIndex" ngx-datatable-cell-template >
-      <img [src]="row.profileImage" style="height: 30px;width: 30px;"/>
+      <img [src]="row.profileImage.length > 0?row.profileImage[0]:'../assets/sampleImage.png'" style="height: 30px;width: 30px;"/>
     </ng-template>
   </ngx-datatable-column>
   <ngx-datatable-column [draggable]="false" [resizeable]="false" [sortable]="false" [name]="'Title'">
@@ -31,7 +31,7 @@
 </ngx-datatable-column>
   <ngx-datatable-column [draggable]="false" [resizeable]="false" [sortable]="false" [name]="'Tags'">
   <ng-template let-row="row" let-itemIndex="rowIndex" ngx-datatable-cell-template >
-      {{row.tags}}
+      {{row.tags.length>0?row.tags:'No tags added'}}
   </ng-template>
 </ngx-datatable-column>
   <ngx-datatable-column [draggable]="false" [resizeable]="false" [sortable]="false" [name]="'Action'">

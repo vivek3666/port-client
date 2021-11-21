@@ -1,37 +1,50 @@
 <div class="py-5">
-    <div class="row">
-        <div class="col-md-6 mx-auto">
-            <span class="anchor" id="formLogin"></span>
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <span class="anchor" id="formLogin"></span>
 
-            <div class="card rounded-0">
-                <div class="card-header">
-                    <h3 class="mb-0">Login Form:</h3>
-                </div>
-                <div class="card-body">
-                    <form class="form" [formGroup]="loginForm" (ngSubmit)='loginUser()'>
-                        <div class="row">
-                            <div class="form-group" ngNativeValidate>
-                                <label for="email">Email:</label>
-                                <input id="email" type="email" name="email"
-                                       class="form-control rounded-0" required>
-                            </div>
-                        </div>
-                        <div class= "row">
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input type="password"  name="password" class="form-control rounded-0" required>
-                        </div>
-                        </div>
-
-                        <div id="button-parent">
-                            <input id="button"  type='submit' class="btn float-none" value='Login' />
-                          <label>Not a member? </label>
-                          <a [routerLink]="'/auth/register'" class="nav-link">Sign Up</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <br>
+      <div class="card rounded-0">
+        <div class="card-header">
+          <h3 class="mb-0">Login Form:</h3>
         </div>
+        <div class="card-body">
+          <form class="form" [formGroup]="loginForm" (ngSubmit)='loginUser()'>
+            <div class="row">
+              <div class="form-group" ngNativeValidate>
+                <label for="email">Email:</label>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <input [formControlName]="'email'" class="form-control rounded-0" id="email" name="email"
+                           required type="email">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group">
+                <label>Password</label>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <input class="form-control rounded-0" name="password" [formControlName]="'password'"
+                           required [type]="isHide?'password':'text'">
+                  </div>
+                  <div class="col-sm-6">
+                    <i class="fa fa-eye" style="align-self: flex-start" aria-hidden="true" alt="show password"
+                       (click)="hidePassword()"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="button-parent">
+              <input id="button" type='submit' class="btn float-none" value='Login'/>
+              <label>Not a member? </label>
+              <a [routerLink]="'/auth/register'" class="nav-link">Sign Up</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      <br>
     </div>
+  </div>
 </div>

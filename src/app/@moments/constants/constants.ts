@@ -3,5 +3,16 @@ export class Constants {
 }
 
 export class UrlConstants {
+
+  public static moment = 'moment';
   public static momentBaseUrl = 'moments';
+}
+
+export class APIEndPoints {
+  public static endpoint = 'http://localhost:3000/api/';
+  // public static endpoint = 'https://moments-5d-server.herokuapp.com/api/';
+}
+
+export class SessionConstants {
+  public static token = 'token';
 }

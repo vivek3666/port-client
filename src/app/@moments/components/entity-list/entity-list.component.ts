@@ -9,11 +9,13 @@ export abstract class EntityListComponent<T> {
   }
 
   public editMoment(baseUrl:string,row: T|any) {
-    this.router.navigate([baseUrl , row._id]).then();
+    this.router.navigate([baseUrl , row._id],{queryParams:{moment:JSON.stringify(row)}}).then();
   }
 
   public deleteMoment(row: T|any) {
-    this.entityService.deleteMoment(row._id.toString());
+    this.entityService.deleteMoment(row._id.toString()).subscribe(
+      ()=>this.deleteMomentSuccess(),
+      (err)=> this.deleteMomentError(err));
   }
 
   public onActivate(baseUrl: string, event:any) {
@@ -23,11 +25,25 @@ export abstract class EntityListComponent<T> {
   }
 
   private setMomentsData() {
-    this.momentsData = [
-      { _id:'1',profileImage: '../assets/sampleImage.png', title: 'T1', tags: ['tag1','tag2']},
-      { _id:'2',profileImage: '../assets/sampleImage.png', title: 'T2', tags: ['tag3','tag4']},
-      { _id:'3',profileImage: '../assets/sampleImage.png', title: 'T3', tags: ['tag6','tag5']},
-      { _id:'4',profileImage: '../assets/sampleImage.png', title: 'T4', tags: ['tag7','tag8']},
-    ]
+    this.entityService.getMoments().subscribe(
+      (result:any)=>this.getMomentSuccess(result.momentsData),
+      (err)=> this.getMomentError(err));
+  }
+
+  private getMomentError(err: any) {
+    //handle error
+  }
+
+  private getMomentSuccess(moments: Array<T>) {
+    this.momentsData = moments;
+      console.log(moments)
+  }
+
+  private deleteMomentSuccess() {
+    this.setMomentsData();
+  }
+
+  private deleteMomentError(err: any) {
+    //handle error
   }
 }
