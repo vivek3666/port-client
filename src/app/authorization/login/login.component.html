@@ -5,17 +5,19 @@
 
       <div class="card rounded-0">
         <div class="card-header">
-          <h3 class="mb-0">Login Form:</h3>
+          <h3 class="mb-0" style="margin-left: 40%;">Sign In</h3>
+          <h6 class="mb-1" style="margin-left: 36%;">To start using the app</h6>
         </div>
-        <div class="card-body">
+        <div style="align-self: center">
           <form class="form" [formGroup]="loginForm" (ngSubmit)='loginUser()'>
             <div class="row">
-              <div class="form-group" ngNativeValidate>
+              <div class="form-group">
                 <label for="email">Email:</label>
                 <div class="row">
-                  <div class="col-sm-6">
-                    <input [formControlName]="'email'" class="form-control rounded-0" id="email" name="email"
-                           required type="email">
+                  <div class="col-sm-9">
+                    <input [formControlName]="'email'" class="form-control" id="email" name="email"
+                           style="    width: 60vh;"
+                           required type="email" [placeholder]="'ministry@government.in'">
                   </div>
                 </div>
               </div>
@@ -25,11 +27,11 @@
                 <label>Password</label>
                 <div class="row">
                   <div class="col-sm-6">
-                    <input class="form-control rounded-0" name="password" [formControlName]="'password'"
-                           required [type]="isHide?'password':'text'">
+                    <input class="form-control" name="password" [formControlName]="'password'"
+                           style="    width: 60vh;" required [type]="isHide?'password':'text'" [placeholder]="'Password'">
                   </div>
                   <div class="col-sm-6">
-                    <i class="fa fa-eye" style="align-self: flex-start" aria-hidden="true" alt="show password"
+                    <i class="fa fa-eye" style="margin-top: 2vh;margin-left: 10vh" aria-hidden="true" alt="show password"
                        (click)="hidePassword()"></i>
                   </div>
                 </div>
@@ -37,9 +39,11 @@
             </div>
 
             <div id="button-parent">
-              <input id="button" type='submit' class="btn float-none" value='Login'/>
-              <label>Not a member? </label>
-              <a [routerLink]="'/auth/register'" class="nav-link">Sign Up</a>
+              <input id="button" type='submit' class="btn float-none" style="margin-right: 22vh;border-radius: 15vh;width: 30vh;background: khaki;" value='Login'/>
+            </div>
+            <div style="display: flex;">
+            <label style="margin-top: 1vh">Not a member? </label>
+            <a [routerLink]="'/auth/register'" class="nav-link">Sign Up</a>
             </div>
           </form>
         </div>
