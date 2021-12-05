@@ -1,11 +1,17 @@
-/* .navbar-brand
-{
-    position: absolute;
-    width: 100%;
-    left: 0;
-    text-align: center;
-    margin:0 auto;
+.moments-header {
+  display: flex;
+  padding: 2vh;
 }
-.navbar-toggle {
-    z-index:3;
-} */
+.burger-menu {
+  width: 3vh;
+}
+.profile-icon {
+  width: 4vh;
+  position: fixed;
+  left: 97vw;
+  top: 1vh;
+}
+.moments-header-item {
+  width: 40vw;
+}
+

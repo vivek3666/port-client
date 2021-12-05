@@ -1,11 +1,12 @@
-/* .navbar-brand
-{
-    position: absolute;
-    width: 100%;
-    left: 0;
-    text-align: center;
-    margin:0 auto;
+.dashboard-container {
+  display: flex;
 }
-.navbar-toggle {
-    z-index:3;
-} */
+.dashboard-navbar {
+  width: 13vw;
+  height: 100vh;
+  box-shadow: 0 0 15px rgb(0 0 0 / 75%);
+  clip-path: inset(0px -15px 0px 0px);
+}
+.dashboard-content {
+  width: 87vw;
+}

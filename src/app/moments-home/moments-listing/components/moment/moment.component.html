@@ -1,33 +1,27 @@
-<div class="py-5">
-  <div class="row">
-    <div class="col-md-6 mx-auto">
-      <span class="anchor" id="formLogin"></span>
-      <div class="card rounded-0">
-        <div class="card-body">
-          <form class="form" [formGroup]="momentForm">
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="form-group">
-                  <label for="title">Title</label>
-                  <input id="title" type="text" name="title" [formControlName]="'title'" [(ngModel)]="moment.title"
-                         class="form-control rounded-0" required>
-                </div>
-              </div>
+<div style="margin: 3vh;">
+  <h6 style="font-size: 3vh;">Add new moment</h6>
+  <div>
+    <div>
+      <div style="width: 54vh;margin: 8vh;">
+        <span id="formLogin"></span>
+        <div>
+          <form [formGroup]="momentForm">
+            <div style="display: grid;padding: 1vh;">
+              <label for="title">Title</label>
+              <input id="title" type="text" name="title" [formControlName]="'title'" [(ngModel)]="moment.title"
+                     required>
             </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="tags">Tags</label>
-                  <input id="tags" type="text" name="tags"
-                         class="form-control rounded-0">
-                </div>
-              </div>
+            <div style="display: grid;padding: 1vh;">
+              <label for="tags">Tags</label>
+              <input id="tags" type="text" name="tags" [(ngModel)]="moment.tags">
             </div>
-            <div class="row" style="margin: 3%">
+            <div  style="padding: 1vh;">
               <file-uploader></file-uploader>
             </div>
-            <button id="button" (click)="isNew?createMoment():editMoment()" type="button" class="btn-outline-primary ">
-              {{isNew?'Submit':'Update'}}</button>
+            <div id="button-parent">
+              <button id="button" (click)="isNew?createMoment():editMoment()" type="button">
+                {{isNew ? 'Submit' : 'Update'}}</button>
+            </div>
           </form>
         </div>
       </div>

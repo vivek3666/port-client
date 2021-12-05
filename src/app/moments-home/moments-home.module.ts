@@ -11,6 +11,9 @@ import {MomentComponent} from "./moments-listing/components/moment/moment.compon
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {FileUploaderComponent} from "../@moments/components/file-uploader/file-uploader.component";
 import {FileDragDropDirective} from "../@moments/directives/file-drag-drop.directive";
+import {TagInputModule} from "ngx-chips";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {CommonModule} from "@angular/common";
 
 export const routes: Routes = [
   ...MomentsHomeRoutes,

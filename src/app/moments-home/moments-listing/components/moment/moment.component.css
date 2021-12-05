@@ -1,0 +1,18 @@
+#button{
+  margin-top: 10px;
+  border-radius: 25px;
+  background-color: #001B30;
+  align-self: center;
+  width: 7vw;
+  height: 5vh;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+
+}
+#button-parent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vh;
+}

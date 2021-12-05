@@ -1,44 +1,45 @@
-<moments-header></moments-header>
-
-<ngx-datatable [columnMode]="columnMode.force"  [headerHeight]="50"
-  [footerHeight]="0"
-  [rowHeight]="41"
-  [scrollbarV]="true"
-  [rows]="momentsData" style="width: 100%;height: 100%">
-  <ngx-datatable-column [draggable]="false" [resizeable]="false" [sortable]="false" [name]="'Sr.No'">
-    <ng-template let-row="row" let-itemIndex="rowIndex" ngx-datatable-group-header-template >
-      <div>
-        Sr.No
-      </div>
-    </ng-template>
-    <ng-template let-row="row" let-itemIndex="rowIndex" ngx-datatable-cell-template >
-      <div>
-        {{(itemIndex + 1)}}
-      </div>
-    </ng-template>
-  </ngx-datatable-column>
-  <ngx-datatable-column [draggable]="false" [resizeable]="false" [sortable]="false" [name]="'Image'">
-    <ng-template let-row="row" let-itemIndex="rowIndex" ngx-datatable-cell-template >
-      <img [src]="row.profileImage.length > 0?row.profileImage[0]:'../assets/sampleImage.png'" style="height: 30px;width: 30px;"/>
-    </ng-template>
-  </ngx-datatable-column>
-  <ngx-datatable-column [draggable]="false" [resizeable]="false" [sortable]="false" [name]="'Title'">
-  <ng-template let-row="row" let-itemIndex="rowIndex" ngx-datatable-cell-template >
-    <div>
-      {{row.title}}
-    </div>
-  </ng-template>
-</ngx-datatable-column>
-  <ngx-datatable-column [draggable]="false" [resizeable]="false" [sortable]="false" [name]="'Tags'">
-  <ng-template let-row="row" let-itemIndex="rowIndex" ngx-datatable-cell-template >
-      {{row.tags.length>0?row.tags:'No tags added'}}
-  </ng-template>
-</ngx-datatable-column>
-  <ngx-datatable-column [draggable]="false" [resizeable]="false" [sortable]="false" [name]="'Action'">
-  <ng-template let-row="row" let-itemIndex="rowIndex" ngx-datatable-cell-template >
-    <i class="fa fa-pencil" style="font-size:24px;margin: 5px" aria-hidden="true" (click)="editMoment(urlConstants.momentBaseUrl,row)" alt="edit"></i>
-    <i class="fa fa-trash-o" style="font-size:24px;margin: 5px" (click)="deleteMoment(row)" alt="delete"></i>
-  </ng-template>
-</ngx-datatable-column>
-</ngx-datatable>
-
+<div style="padding: 5vh;">
+  <ngx-datatable [columnMode]="columnMode.force" [headerHeight]="50"
+                 [footerHeight]="0"
+                 [rowHeight]="41"
+                 [scrollbarV]="true"
+                 [rows]="momentsData" style="width: 79vw;height: 79vh">
+    <ngx-datatable-column [draggable]="true" [resizeable]="true" [sortable]="true" [name]="'Sr.No'" [prop]="'srNo'">
+      <ng-template let-row="row" let-itemIndex="rowIndex" ngx-datatable-group-header-template>
+        <div>
+          Sr.No
+        </div>
+      </ng-template>
+      <ng-template let-row="row" let-itemIndex="rowIndex" ngx-datatable-cell-template>
+        <div>
+          {{(row.srNo)}}
+        </div>
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column [draggable]="false" [resizeable]="false" [sortable]="false" [name]="'Image'">
+      <ng-template let-row="row" let-itemIndex="rowIndex" ngx-datatable-cell-template>
+        <img [src]="'../assets/sampleImage.png'"
+             style="height: 30px;width: 30px;  border-radius: 3vh;"/>
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column [draggable]="true" [resizeable]="true" [sortable]="true" [name]="'Title'" [prop]="'title'">
+      <ng-template let-row="row" let-itemIndex="rowIndex" ngx-datatable-cell-template>
+        <div>
+          {{row.title}}
+        </div>
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column [draggable]="false" [resizeable]="false" [sortable]="false" [name]="'Tags'">
+      <ng-template let-row="row" let-itemIndex="rowIndex" ngx-datatable-cell-template>
+        {{row.tags.length > 0 ? row.tags : 'No tags added'}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column [draggable]="false" [resizeable]="false" [sortable]="false" [name]="'Action'">
+      <ng-template let-row="row" let-itemIndex="rowIndex" ngx-datatable-cell-template>
+        <i class="fa fa-pencil" style="font-size:24px;margin: 5px" aria-hidden="true"
+           (click)="editMoment(urlConstants.momentBaseUrl,row)" alt="edit"></i>
+        <i class="fa fa-trash-o" style="font-size:24px;margin: 5px" (click)="deleteMoment(row)" alt="delete"></i>
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
+</div>

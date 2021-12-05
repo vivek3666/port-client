@@ -13,6 +13,7 @@ import { SignupComponent } from './authorization/signup/signup.component';
 import { AuthService } from './authorization/services/auth.service';
 import {RouterModule, Routes} from "@angular/router";
 import {mainRoutes} from "./app-routing.module";
+import {AuthHeaderComponent} from "./authorization/auth-header/auth-header.component";
 
 export const routes: Routes = [
   ...mainRoutes,
@@ -23,7 +24,8 @@ export const routes: Routes = [
     AppComponent,
     HeaderComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    AuthHeaderComponent
   ],
   imports: [
     BrowserModule,

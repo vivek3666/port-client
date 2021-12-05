@@ -1,54 +1,47 @@
-<div class="py-5">
-  <div class="row">
-    <div class="col-md-6 mx-auto">
-      <span class="anchor" id="formLogin"></span>
-
-      <div class="card rounded-0">
-        <div class="card-header">
-          <h3 class="mb-0" style="margin-left: 40%;">Sign In</h3>
-          <h6 class="mb-1" style="margin-left: 36%;">To start using the app</h6>
-        </div>
-        <div style="align-self: center">
-          <form class="form" [formGroup]="loginForm" (ngSubmit)='loginUser()'>
-            <div class="row">
-              <div class="form-group">
-                <label for="email">Email:</label>
-                <div class="row">
-                  <div class="col-sm-9">
-                    <input [formControlName]="'email'" class="form-control" id="email" name="email"
-                           style="    width: 60vh;"
-                           required type="email" [placeholder]="'ministry@government.in'">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="form-group">
-                <label>Password</label>
-                <div class="row">
-                  <div class="col-sm-6">
-                    <input class="form-control" name="password" [formControlName]="'password'"
-                           style="    width: 60vh;" required [type]="isHide?'password':'text'" [placeholder]="'Password'">
-                  </div>
-                  <div class="col-sm-6">
-                    <i class="fa fa-eye" style="margin-top: 2vh;margin-left: 10vh" aria-hidden="true" alt="show password"
-                       (click)="hidePassword()"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div id="button-parent">
-              <input id="button" type='submit' class="btn float-none" style="margin-right: 22vh;border-radius: 15vh;width: 30vh;background: khaki;" value='Login'/>
-            </div>
-            <div style="display: flex;">
-            <label style="margin-top: 1vh">Not a member? </label>
-            <a [routerLink]="'/auth/register'" class="nav-link">Sign Up</a>
-            </div>
-          </form>
-        </div>
+<div>
+  <div>
+    <auth-header></auth-header>
+  </div>
+  <div id="login-container">
+    <span class="anchor" id="formLogin"></span>
+    <div>
+      <div>
+        <h3 class="signin-header">Sign In</h3>
+        <h5 class="signin-subheader">To start using the app</h5>
       </div>
-      <br>
+      <div class="form-container">
+        <form [formGroup]="loginForm" (ngSubmit)='loginUser()'>
+          <div>
+            <label for="email">Enter email id:</label>
+            <div>
+              <input [formControlName]="'email'" id="email" name="email"
+                     required type="email" [placeholder]="'ministry@government.in'">
+            </div>
+          </div>
+          <div>
+            <label>Enter Password</label>
+            <div>
+              <div>
+                <input id="input" name="password" [formControlName]="'password'"
+                       required [type]="isHide?'password':'text'" [placeholder]="'Password'">
+              </div>
+              <div>
+                <i aria-hidden="true" alt="show password"
+                   (click)="hidePassword()"></i>
+              </div>
+            </div>
+          </div>
+
+          <div id="button-parent">
+            <input id="button" type='submit' value='Sign In'/>
+          </div>
+          <div class="not-a-member">
+            <label style="margin-right:0.5vw">Not a member? </label>
+            <a class="signup-link" [routerLink]="'/auth/register'">Sign Up</a>
+          </div>
+        </form>
+      </div>
     </div>
+    <br>
   </div>
 </div>

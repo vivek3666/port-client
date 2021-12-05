@@ -1,57 +1,61 @@
-<div class="py-5">
-  <div class="row">
-    <div class="col-md-6 mx-auto">
-      <span class="anchor" id="formLogin"></span>
-      <div class="card rounded-0">
-        <div class="card-header">
-          <h3 class="mb-0">Sign up To be a member</h3>
-        </div>
-        <div class="card-body">
-          <form class="form" [formGroup]="userForm">
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="firstName">First Name:</label>
-                  <input class="form-control rounded-0" [formControlName]="'firstName'" id="firstName"
+<div>
+  <div>
+    <auth-header></auth-header>
+  </div>
+  <div>
+    <div>
+      <span id="formLogin"></span>
+      <div class="sign-up-header">
+        <h3 class="signin-header">Sign Up</h3>
+        <h5 class="signin-subheader">To be a member</h5>
+      </div>
+      <div id="signup-container">
+        <div class="signup-form">
+          <form [formGroup]="userForm">
+            <div class="row-container">
+              <div class="signup-row">
+                <div class="row-align">
+                  <label class="form-lbl" for="firstName">First Name:</label>
+                  <input class="input" [formControlName]="'firstName'" id="firstName"
                          required type="text">
                 </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="lastName">Last Name:</label>
-                  <input id="lastName" type="text" [formControlName]="'lastName'" name="lastName"
-                         class="form-control rounded-0" required>
+                <div class="row-align">
+                  <label class="form-lbl"  for="lastName">Last Name:</label>
+                  <input class="input" id="lastName" type="text" [formControlName]="'lastName'" name="lastName"
+                         required>
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <label for="phoneNo">Phone no.</label>
-                <input id="phoneNo" type="number" name="phoneNo" class="form-control rounded-0"
-                       [formControlName]="'phoneNo'"  required>
+              <div class="signup-row">
+                <div class="row-align">
+                  <label class="form-lbl"  for="phoneNo">Phone no.</label>
+                  <input class="input" id="phoneNo" type="number" name="phoneNo"
+                         [formControlName]="'phoneNo'" required>
+                </div>
+                <div class="row-align">
+                  <label class="form-lbl"  for="email">Email-ID</label>
+                  <input class="input" id="email" type="email" name="email"
+                         [formControlName]="'email'" required>
+                </div>
               </div>
-              <div class="col-sm-6">
-                <label for="email">Email-ID</label>
-                <input id="email" type="email" name="email" class="form-control rounded-0"
-                       [formControlName]="'email'" required>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <label for="city">City</label>
-                <input id="city" type="email" name="city" class="form-control rounded-0"
-                       [formControlName]="'city'" required>
-              </div>
-              <div class="col-sm-6">
-                <label for="password">Enter Password</label>
-                <input id="password" type="email" name="password" class="form-control rounded-0"
-                       [formControlName]="'password'" required>
+              <div class="signup-row">
+                <div class="row-align">
+                  <label class="form-lbl"  for="city">City</label>
+                  <input class="input" id="city" type="email" name="city"
+                         [formControlName]="'city'" required>
+                </div>
+                <div class="row-align">
+                  <label class="form-lbl"  for="password">Enter Password</label>
+                  <input class="input" id="password" type="email" name="password"
+                         [formControlName]="'password'" required>
+                </div>
               </div>
             </div>
             <div id="button-parent">
-              <button id="button" (click)="registerUser()" type="button" class="btn float-none">Register</button>
-              <label>Already a member? </label>
-              <a [routerLink]="'/auth/login'" class="nav-link">Sign In</a>
+              <button id="button" (click)="registerUser()" type="button">Register</button>
+            </div>
+            <div class="not-a-member">
+              <label style="margin-right:0.5vw">Already a member? </label>
+              <a class="signup-link" [routerLink]="'/auth/login'">Sign In</a>
             </div>
           </form>
         </div>

@@ -7,7 +7,8 @@ import {Moment} from "../../../models/moment";
 
 @Component({
   selector: 'moment',
-  templateUrl: './moment.component.html'
+  templateUrl: './moment.component.html',
+  styleUrls:['./moment.component.css']
 })
 export class MomentComponent implements OnInit {
   public momentForm: FormGroup;
