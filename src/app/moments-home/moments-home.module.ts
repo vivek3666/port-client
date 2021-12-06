@@ -19,11 +19,13 @@ export const routes: Routes = [
   ...MomentsHomeRoutes,
 ];
 @NgModule({
-  imports:[
+  imports: [
     RouterModule.forChild(routes),
     NgxDatatableModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TagInputModule,
+    CommonModule
   ],
   declarations: [
     NavbarComponent,

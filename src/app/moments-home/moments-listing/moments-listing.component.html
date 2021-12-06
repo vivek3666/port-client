@@ -29,9 +29,14 @@
         </div>
       </ng-template>
     </ngx-datatable-column>
-    <ngx-datatable-column [draggable]="false" [resizeable]="false" [sortable]="false" [name]="'Tags'">
+    <ngx-datatable-column [draggable]="true" [resizeable]="true" [sortable]="true" [name]="'Tags'" [prop]="'tags'">
       <ng-template let-row="row" let-itemIndex="rowIndex" ngx-datatable-cell-template>
-        {{row.tags.length > 0 ? row.tags : 'No tags added'}}
+        <ng-container *ngIf="row.tags.length > 0; else noTags">
+          <tag-input placeholder='My Placeholder' [ngModel]="row.tags" [removable]="false" [editable]="false" [disable]="true"></tag-input>
+        </ng-container>
+        <ng-template #noTags>
+          <span>No tags added</span>
+        </ng-template>
       </ng-template>
     </ngx-datatable-column>
     <ngx-datatable-column [draggable]="false" [resizeable]="false" [sortable]="false" [name]="'Action'">

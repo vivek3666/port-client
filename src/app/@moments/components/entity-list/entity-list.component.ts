@@ -35,8 +35,8 @@ export abstract class EntityListComponent<T> {
   }
 
   private getMomentSuccess(moments: Array<T>) {
-    this.momentsData = moments.map((moment:any,index)=> {
-      moment.srNo = (index+1);
+    this.momentsData = moments.map((moment: any, index) => {
+      moment.srNo = (index + 1);
       return moment;
     });
   }

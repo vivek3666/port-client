@@ -8,12 +8,17 @@
           <form [formGroup]="momentForm">
             <div style="display: grid;padding: 1vh;">
               <label for="title">Title</label>
-              <input id="title" type="text" name="title" [formControlName]="'title'" [(ngModel)]="moment.title"
+              <input id="title" type="text" name="title" [formControlName]="'title'"
                      required>
             </div>
             <div style="display: grid;padding: 1vh;">
-              <label for="tags">Tags</label>
-              <input id="tags" type="text" name="tags" [(ngModel)]="moment.tags">
+              <div>
+                <label for="tags">Tags</label>
+                <tag-input id="tags" [(ngModel)]="moment.tags"
+                           [editable]="true" [formControlName]="'tags'"
+                           (onTagEdited)="onTagEdited($event)">
+                </tag-input>
+              </div>
             </div>
             <div  style="padding: 1vh;">
               <file-uploader></file-uploader>

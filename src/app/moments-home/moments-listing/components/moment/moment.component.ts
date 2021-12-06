@@ -4,6 +4,7 @@ import {ValidationService} from "../../../../@moments/validators/validation.serv
 import {MomentsService} from "../../services/moments.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Moment} from "../../../models/moment";
+import {TagModel} from "ngx-chips/core/accessor";
 
 @Component({
   selector: 'moment',
@@ -18,7 +19,8 @@ export class MomentComponent implements OnInit {
   constructor(private formBuilder:FormBuilder,private momentService:MomentsService,private router:Router,
               private activatedRoute:ActivatedRoute ) {
     this.momentForm =  this.formBuilder.group({
-      'title': ['', [ValidationService.required, ValidationService.requireTitleValidator]]
+      'title': ['', [ValidationService.required, ValidationService.requireTitleValidator]],
+      'tags':[]
     });
   }
 
@@ -33,9 +35,10 @@ export class MomentComponent implements OnInit {
   }
 
   public createMoment(): void {
-    if(this.momentForm.valid){
+    if(this.momentForm.valid) {
+      this.momentForm.value.tags = this.momentForm.value.tags.map((obj:any)=> (obj.value));
       this.momentService.addMoment(this.momentForm.value).subscribe(
-        (res)=> this.createMomentSuccess(res),
+        ()=> this.createMomentSuccess(),
         (err)=> this.createMomentError(err));
     }
   }
@@ -44,12 +47,16 @@ export class MomentComponent implements OnInit {
     if(this.momentForm.valid){
       const momentId: string = this.moment._id as string;
       this.momentService.updateMoment(momentId,this.momentForm.value).subscribe(
-        (res)=> this.createMomentSuccess(res),
+        ()=> this.createMomentSuccess(),
         (err)=> this.createMomentError(err));
     }
   }
 
-  private createMomentSuccess(res:any): void {
+  public onTagEdited(event: TagModel) {
+    // console.log(event);
+  }
+
+  private createMomentSuccess(): void {
     this.router.navigate(['moments','moment-listing']).then();
   }
 
